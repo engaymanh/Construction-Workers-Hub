@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>construction-workers-hub</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-resource.min.js"></script>
+  </head>
+  <body>
+    <app ng-app="app">
+      <ng-view>
+    </app>
+    <script>
+      var app = angular.module("app", ["ngRoute"]);
+    </script>
+    <script src="./compnent/homecontroller.js"></script>
+    <script src="./compnent/testcontroller.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
