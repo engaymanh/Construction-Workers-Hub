@@ -18,9 +18,13 @@ const port = process.env.PORT || 5000;
 // npm install --save bluebird
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('client'));
+z(express.static('client'));
 app.use(bodyParser.json());
-
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	next();
+});
 //sign up for engineer in the database
 app.post('/signupEngineer', function(req, res) {
 	let fullname = req.body.fullname;
@@ -64,7 +68,9 @@ app.post('/signinEngineer', function(req, res) {
 		bcrypt.compare(password, existingHashedPassword).then(function(isMatching) {
 			if (isMatching) {
 				//Create a token and send to client
-				const token = jwt.sign({ username: user.userName }, SECRET_KEY, { expiresIn: 900 });
+				const token = jwt.sign({ username: user.userName }, SECRET_KEY, {
+					expiresIn: 900
+				});
 				return res.send({ token: token });
 			} else {
 				return res.status(401).send({ error: 'Wrong password' });
@@ -266,7 +272,9 @@ app.get('/stoneBuilder', function(req, res) {
 		.findAll({ where: { role: Role } })
 		.then(function(users) {
 			if (!users) {
-				return res.send({ error: 'Sorry, There are no stone Builders available' });
+				return res.send({
+					error: 'Sorry, There are no stone Builders available'
+				});
 			}
 
 			return res.send(users);
