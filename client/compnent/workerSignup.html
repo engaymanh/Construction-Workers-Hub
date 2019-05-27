@@ -1,0 +1,41 @@
+<div>
+    {{ msg }}
+    <div>
+            <NavLink to="/" >
+                <h2 id="homeButton">Home</h2>
+            </NavLink>
+            <br />
+            {this.state.toggleSignIn ? (
+                <div>
+                    <h1>
+                        Construction Worker Sign In
+                    </h1>
+                    <input type="text" name="username" placeholder="userName" onChange={this.onChange.bind(this)} />
+                    <br />
+                    <br />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="password"
+                        onChange={this.onChange.bind(this)}
+                        ng-module
+                    />
+                    <br />
+                    <br />
+                    <button onClick={this.clicked.bind(this)} className="Button">
+                        Sign In
+                    </button>
+                </div>
+            ) : (
+                <WorkerMainPage
+                    fullName={this.state.fullName}
+                    phoneNumber={this.state.phoneNumber}
+                    experienceLevel={this.state.experienceLevel}
+                    expectedSalary={this.state.expectedSalary}
+                    role={this.state.role}
+                    status={this.state.status}
+                    url={this.state.url}
+                />
+            )}
+        </div>
+</div>

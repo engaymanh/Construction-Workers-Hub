@@ -18,7 +18,7 @@ const port = process.env.PORT || 5000;
 // npm install --save bluebird
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('client'));
 app.use(bodyParser.json());
 
 //sign up for engineer in the database
