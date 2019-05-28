@@ -18,11 +18,12 @@ const port = process.env.PORT || 5000;
 // npm install --save bluebird
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('client'));
 app.use(bodyParser.json());
 
 //sign up for engineer in the database
 app.post('/signupEngineer', function(req, res) {
+	console.log(req.body);
 	let fullname = req.body.fullname;
 	let username = req.body.username;
 	let password = req.body.password;
