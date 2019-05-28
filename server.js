@@ -129,7 +129,7 @@ app.post('/signinWorker', function(req, res) {
 		bcrypt.compare(password, workerPassword).then(function(isMatching) {
 			if (isMatching) {
 				// console.log(user)
-				const token = jwt.sign({ username: user.userName, role: user.role }, SECRET_KEY, { expiresIn: 9000 });
+				const token = jwt.sign({ username: user.userName, role: user.role }, SECRET_KEY, { expiresIn: 900 });
 				return res.send({ token: token });
 			} else {
 				return res.status(401).send({ error: 'Wrong password' });
@@ -141,12 +141,11 @@ app.post('/signinWorker', function(req, res) {
 //authentication for both the engineer and workers
 const authenticate = function(req, res, next) {
 	const token = req.headers['x-access-token']; //Username encoded in token
-	console.log(token);
 	if (!token) {
 		return res.status(401).send('Please sign in');
 	}
 	jwt.verify(token, SECRET_KEY, (err, data) => {
-		console.log(data);
+		//console.log(data)
 		if (err) {
 			return res.status(401).send('Please sign in');
 		}
@@ -154,7 +153,7 @@ const authenticate = function(req, res, next) {
 		const username = data.username;
 
 		if (data.role) {
-			console.log(username);
+			//console.log(username)
 			worker
 				.findOne({ where: { userName: username } })
 				.then((user) => {
@@ -191,11 +190,10 @@ const authenticate = function(req, res, next) {
 //worker profile
 app.get('/workerPage', authenticate, function(req, res) {
 	const user = req.body.user;
-	console.log(user, 'dkjhdkdkddkjdklddkjdjkdkjdkddjkkjdkdjdkdkjdkjdjk');
+	//console.log(user)
 	worker
 		.findOne({ where: { id: user.id } })
 		.then(function(user) {
-			console.log(user);
 			return res.send({
 				fullName: user.fullName,
 				userName: user.userName,
