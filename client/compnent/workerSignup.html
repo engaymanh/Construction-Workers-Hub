@@ -1,41 +1,77 @@
-<div>
-    {{ msg }}
-    <div>
-            <NavLink to="/" >
-                <h2 id="homeButton">Home</h2>
-            </NavLink>
+	<div>
+						<!-- <NavLink to="/" > -->
+							
+    <a href="#!/">home </a>
+						<!-- </NavLink> -->
+						<h1 >
+							Sign Up for construction Workers
+						</h1>
+						<h4 > Upload profile photo </h4>
+						<input type="file" ng-model="handleChange" />
+						<button ng-click="handleUpload">
+							Upload
+						</button>
+						<br />
+						<img
+							ng-src=
+								"{{url}}" 
+							
+							alt="uploaded image"
+							height="150"
+							width="200"
+						/>
+						<br />
+						<input type="text" name="fullname" placeholder="fullName" ng-model="fullname" />
+						<br />
+						<input type="text" name="username" placeholder="userName" ng-model="username" />
+						<br />
+						<input
+							type="password"
+							name="password"
+							placeholder="password"
+						  ng-model="password"
+						/>
+						<br />
+						<input
+							type="number"
+							name="phonenumber"
+							placeholder="079-123-4567"
+							ng-model="phonenumber"
+						/>
+						<br />
+						<input
+							type="number"
+							name="expectedsalary"
+							placeholder="expected salary / hour"
+							ng-model="expectedsalary"
+						/>
             <br />
-            {this.state.toggleSignIn ? (
-                <div>
-                    <h1>
-                        Construction Worker Sign In
-                    </h1>
-                    <input type="text" name="username" placeholder="userName" onChange={this.onChange.bind(this)} />
-                    <br />
-                    <br />
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                        onChange={this.onChange.bind(this)}
-                        ng-module
-                    />
-                    <br />
-                    <br />
-                    <button onClick={this.clicked.bind(this)} className="Button">
-                        Sign In
-                    </button>
-                </div>
-            ) : (
-                <WorkerMainPage
-                    fullName={this.state.fullName}
-                    phoneNumber={this.state.phoneNumber}
-                    experienceLevel={this.state.experienceLevel}
-                    expectedSalary={this.state.expectedSalary}
-                    role={this.state.role}
-                    status={this.state.status}
-                    url={this.state.url}
-                />
-            )}
-        </div>
+            <label> Role: </label>
+						<select name="role" ng-model="role">
+                <option value="Painter">Painter </option>
+                <option value="Carpenter">Carpenter</option>
+                <option value="Stone Builde">Stone Builder </option>
+                <option value="Smith">Smith</option>
+						</select>
+            <br />
+            <label>Experience level:</label>
+						<select name="experiencelevel" ng-model="experiencelevel">
+                <option value="Professional">Professional</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Beginner">Beginner </option>
+						</select>
+            <br />
+            <label>Status:</label>
+						<select name="status" ng-model="status">
+							<option value="Available">Available </option>
+                <option value="Not Available">Not Available</option>
+						</select>
+						<br />
+						<button id="signUpWorker" ng-click="signUp()" >
+							Sign Up
+						</button>
+							<p value="sign In as a construction Worker">
+								Already have an account? <a href="#!/workerSignin">Sign In</a>                 
+					</div>
+			</div>
 </div>

@@ -91,7 +91,7 @@ app.post('/signupWorker', function(req, res) {
 	const status = req.body.info.status;
 	const url = req.body.info.url;
 	const hashedPassword = bcrypt.hashSync(password, 10);
-
+	console.log(req.body.info);
 	worker
 		.create({
 			fullName: fullName,
