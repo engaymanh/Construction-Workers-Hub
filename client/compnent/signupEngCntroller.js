@@ -34,7 +34,7 @@ app.controller('signupEng', [
 						formData.url = snapshot.downloadURL;
 						$scope.url = formData.url;
 						formData.$save().then(() => {
-							angular.element("input[type='file']").val(null);
+							// angular.element("input[type='file']").val(null);
 							$scope.image = null;
 						});
 					});
