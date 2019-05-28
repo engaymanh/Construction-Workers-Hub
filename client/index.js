@@ -5,6 +5,10 @@ app.config(function($routeProvider) {
       templateUrl: "./compnent/signup.html",
       controller: "signupController"
     })
+    .when("/WorkerProfile", {
+      templateUrl: "./compnent/WorkerProfile.html",
+      controller: "WorkerProfile"
+    })
     .when("/", {
       templateUrl: "./compnent/homehtml.html",
       controller: "homeController"
