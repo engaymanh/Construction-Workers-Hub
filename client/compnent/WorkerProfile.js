@@ -1,26 +1,26 @@
 app.controller("WorkerProfile", function($scope, $http, worker_id_service) {
   $scope.number = "";
   $scope.msg = "";
-  $scope.userProfile = worker_id_service.worker;
-  $scope.worker_id = $scope.userProfile.id;
-  console.log($scope.userProfile);
-  // get_worker_profile = function() {
-  //   console.log($scope.worker_id);
-  //   // const token = localStorage.getItem("token");
-  //   $http({
-  //     method: "get",
-  //     url: `/engineerworker/${$scope.worker_id}`,
-  //     headers: {
-  //       "Content-Type": "application/json; charset = utf-8"
-  //       // , "x-access-token": token
-  //     }
-  //   }).then(function(data) {
-  //     // console.log(data);
-  //     $scope.userProfile = data.data[0];
-  //     // console.log($scope.userProfile);
-  //   });
-  // };
-  // get_worker_profile();
+  $scope.userProfile = [];
+  $scope.worker_id = worker_id_service.worker.id;
+
+  get_worker_profile = function() {
+    console.log($scope.worker_id, "dfdfsdfsdfs");
+    // const token = localStorage.getItem("token");
+    $http({
+      method: "get",
+      url: `/engineerworker/${$scope.worker_id}`,
+      headers: {
+        "Content-Type": "application/json; charset = utf-8"
+        // , "x-access-token": token
+      }
+    }).then(function(data) {
+      // console.log(data);
+      $scope.userProfile = data.data[0];
+      // console.log($scope.userProfile);
+    });
+  };
+  get_worker_profile();
   $scope.pick_worker = function() {};
   $scope.book = function() {
     if ($scope.userProfile.status === "not Available") {

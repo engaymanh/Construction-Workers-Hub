@@ -460,3 +460,30 @@ const server = app.listen(port, () => {
 // 		console.log('Disconnected');
 // 	});
 // });
+
+//shows the profile of all construction workers category from the engineer side ******
+app.get("/engineerworker/:id", function(req, res) {
+  const userId = req.params.id;
+  // console.log(userId);
+  worker
+    .findOne({
+      where: { id: userId }
+    })
+    .then(function(user) {
+      return res.send([
+        {
+          fullName: user.fullName,
+          experienceLevel: user.experienceLevel,
+          expectedSalary: user.expectedSalary,
+          phoneNumber: user.phoneNumber,
+          status: user.status,
+          role: user.role,
+          username: user.userName,
+          url: user.url
+        }
+      ]);
+    })
+    .catch(function(err) {
+      return res.status(500).send(err);
+    });
+});

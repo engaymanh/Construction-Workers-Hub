@@ -29,6 +29,6 @@ app.controller("workerscategory", function(
   $scope.showProfile = function(id) {
     console.log(id);
     worker_id_service.worker = $scope.users[id];
-    $location.path("/WorkerProfile");
+    $location.path("/WorkerProfile/" + worker_id_service.worker.id);
   };
 });
