@@ -5,12 +5,19 @@ app.config(function($routeProvider) {
       templateUrl: "./compnent/signup.html",
       controller: "signupController"
     })
-    .when("/WorkerProfile", {
+    .when("/WorkerProfile/:id", {
       templateUrl: "./compnent/WorkerProfile.html",
       controller: "WorkerProfile"
+    })
+    .when("/workerscategory", {
+      templateUrl: "./compnent/workerscategory.html",
+      controller: "workerscategory"
     })
     .when("/", {
       templateUrl: "./compnent/homehtml.html",
       controller: "homeController"
     });
+});
+app.service("worker_id_service", function() {
+  var worker_id;
 });

@@ -315,25 +315,30 @@ app.get("/painter", function(req, res) {
     });
 });
 
-//shows the profile of all construction workers category from the engineer side
-app.get("/engineerworker/:id", function(req, res) {
-  const userId = req.params.id;
-  console.log(userId);
+//shows the profile of all construction workers category from the engineer side ******
+app.get("/engineerworker", function(req, res) {
+  // const userId = req.params.id;
+  // console.log(userId);
   worker
-    .findOne({ where: { id: userId } })
+    .findAll({
+      //  where: { id: userId }
+    })
     .then(function(user) {
-      return res.send([
-        {
-          fullName: user.fullName,
-          experienceLevel: user.experienceLevel,
-          expectedSalary: user.expectedSalary,
-          phoneNumber: user.phoneNumber,
-          status: user.status,
-          role: user.role,
-          username: user.userName,
-          url: user.url
-        }
-      ]);
+      return res.send(
+        user
+        //   [
+        //   {
+        //     fullName: user.fullName,
+        //     experienceLevel: user.experienceLevel,
+        //     expectedSalary: user.expectedSalary,
+        //     phoneNumber: user.phoneNumber,
+        //     status: user.status,
+        //     role: user.role,
+        //     username: user.userName,
+        //     url: user.url
+        //   }
+        // ]
+      );
     })
     .catch(function(err) {
       return res.status(500).send(err);
@@ -419,7 +424,7 @@ app.post("/sentMessage", function(req, res) {
   let to = req.body.number;
   let text = req.body.msg;
   res.status(201).send("sended");
-  // nexmo.message.sendSms(
+  //********* */ nexmo.message.sendSms(
   //   from,
   //   to,
   //   text,

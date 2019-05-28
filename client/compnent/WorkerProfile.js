@@ -1,28 +1,26 @@
-app.controller("WorkerProfile", function($scope, $http) {
-  $scope.worker_id = $scope.$parent.worker_id || 1;
+app.controller("WorkerProfile", function($scope, $http, worker_id_service) {
   $scope.number = "";
   $scope.msg = "";
-  $scope.userProfile = {
-    fullName: "",
-    experienceLevel: "",
-    expectedSalary: "",
-    phoneNumber: "",
-    status: "",
-    role: ""
-  };
-  get_worker_profile = function() {
-    console.log("gggg");
-    $http({
-      method: "get",
-      url: `/engineerworker/${$scope.worker_id}`,
-      headers: { "Content-Type": "application/json; charset = utf-8" }
-    }).then(function(data) {
-      // console.log(data);
-      $scope.userProfile = data.data[0];
-      // console.log($scope.userProfile);
-    });
-  };
-  get_worker_profile();
+  $scope.userProfile = worker_id_service.worker;
+  $scope.worker_id = $scope.userProfile.id;
+  console.log($scope.userProfile);
+  // get_worker_profile = function() {
+  //   console.log($scope.worker_id);
+  //   // const token = localStorage.getItem("token");
+  //   $http({
+  //     method: "get",
+  //     url: `/engineerworker/${$scope.worker_id}`,
+  //     headers: {
+  //       "Content-Type": "application/json; charset = utf-8"
+  //       // , "x-access-token": token
+  //     }
+  //   }).then(function(data) {
+  //     // console.log(data);
+  //     $scope.userProfile = data.data[0];
+  //     // console.log($scope.userProfile);
+  //   });
+  // };
+  // get_worker_profile();
   $scope.pick_worker = function() {};
   $scope.book = function() {
     if ($scope.userProfile.status === "not Available") {
