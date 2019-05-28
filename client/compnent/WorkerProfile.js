@@ -1,5 +1,5 @@
 app.controller("WorkerProfile", function($scope, $http) {
-  $scope.worker_id = $scope.$parent.worker_id || 2;
+  $scope.worker_id = $scope.$parent.worker_id || 1;
   $scope.number = "";
   $scope.msg = "";
   $scope.userProfile = {
@@ -23,37 +23,7 @@ app.controller("WorkerProfile", function($scope, $http) {
     });
   };
   get_worker_profile();
-  $scope.pick_worker = function() {
-    $http({
-      method: "put",
-      url: `/engineerworker/${worker_id}`,
-      headers: { "Content-Type": "application/json; charset = utf-8" }
-    }).then(function(response) {
-      if (response.status == 200) {
-        console.log("hi");
-      } else {
-        response.then(error => {
-          console.log(error);
-        });
-      }
-    });
-    const token = localStorage.getItem("token");
-    console.log(token);
-    $http({
-      method: "post",
-      url: `/engineerworker/${worker_id}`,
-      headers: {
-        "Content-Type": "application/json; charset = utf-8",
-        "x-access-token": token
-      }
-    }).then(function(response) {
-      if (response.status == 201) {
-        console.log("added");
-      } else {
-        console.log("err");
-      }
-    });
-  };
+  $scope.pick_worker = function() {};
   $scope.book = function() {
     if ($scope.userProfile.status === "not Available") {
       alert($scope.userProfile.fullName + " is not availbale at the moment");
@@ -66,6 +36,36 @@ app.controller("WorkerProfile", function($scope, $http) {
           $scope.userProfile.fullName +
           " a message bellow "
       );
+      $http({
+        method: "put",
+        url: `/engineerworker/${$scope.worker_id}`,
+        headers: { "Content-Type": "application/json; charset = utf-8" }
+      }).then(function(response) {
+        if (response.status == 200) {
+          console.log("hi");
+        } else {
+          response.then(error => {
+            console.log(error);
+          });
+        }
+      });
+      // const token = localStorage.getItem("token");
+      // console.log(token);
+      // $http({
+      //   method: "post",
+      //   url: `/engineerworker/${$scope.worker_id}`,
+      //   headers: {
+      //     "Content-Type": "application/json; charset = utf-8"
+      //     // ,
+      //     // "x-access-token": token
+      //   }
+      // }).then(function(response) {
+      //   if (response.status == 201) {
+      //     console.log("added");
+      //   } else {
+      //     console.log("err");
+      //   }
+      // });
       // let that = this;
       // const { match } = this.props;
       //console.log()

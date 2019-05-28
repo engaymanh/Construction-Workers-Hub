@@ -374,7 +374,7 @@ app.put("/engineerworker/:id", function(req, res, next) {
   worker
     .update(
       {
-        status: "not Available"
+        status: "Available"
       },
       {
         where: {
@@ -414,32 +414,33 @@ const nexmo = new Nexmo(
 
 //send sms message
 app.post("/sentMessage", function(req, res) {
-  console.log(req.body);
-  let from = "Bug-Busters-200";
+  console.log("ggggg", req.body, "gghgggggg");
+  let from = "Cyber-Ninjas";
   let to = req.body.number;
   let text = req.body.msg;
-  nexmo.message.sendSms(
-    from,
-    to,
-    text,
-    { type: "unicode" },
-    (err, responseData) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.dir(responseData);
-        //Get data from response
-        const data = {
-          id: responseData.messages[0]["message-id"],
-          number: responseData.messages[0]["to"]
-        };
+  res.status(201).send("sended");
+  // nexmo.message.sendSms(
+  //   from,
+  //   to,
+  //   text,
+  //   { type: "unicode" },
+  //   (err, responseData) => {
+  //     if (err) {
+  //       console.log(err);
+  //     } else {
+  //       console.dir(responseData);
+  //       //Get data from response
+  //       const data = {
+  //         id: responseData.messages[0]["message-id"],
+  //         number: responseData.messages[0]["to"]
+  //       };
 
-        //Emit to client
-        // io.emit('smsStatus', data);
-      }
-    }
-  );
-  console.log(data);
+  //       //Emit to client
+  // io.emit('smsStatus', data);
+  //     }
+  //   }
+  // );
+  // console.log(data);
 });
 
 const server = app.listen(port, () => {
