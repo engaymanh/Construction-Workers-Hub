@@ -374,7 +374,7 @@ app.put("/engineerworker/:id", function(req, res, next) {
   worker
     .update(
       {
-        status: "Available"
+        status: "not Available"
       },
       {
         where: {

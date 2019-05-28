@@ -42,6 +42,7 @@ app.controller("WorkerProfile", function($scope, $http) {
         headers: { "Content-Type": "application/json; charset = utf-8" }
       }).then(function(response) {
         if (response.status == 200) {
+          get_worker_profile();
           console.log("hi");
         } else {
           response.then(error => {
