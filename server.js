@@ -27,6 +27,7 @@ app.use((req, res, next) => {
 });
 //sign up for engineer in the database
 app.post('/signupEngineer', function(req, res) {
+	console.log(req.body);
 	let fullname = req.body.fullname;
 	let username = req.body.username;
 	let password = req.body.password;
@@ -44,9 +45,11 @@ app.post('/signupEngineer', function(req, res) {
 			url: url
 		})
 		.then(function() {
+			console.log('creat');
 			return res.status(201).send({ success: 'Sign up as engineer successful' });
 		})
 		.catch(function(err) {
+			console.log(err);
 			if (err.name === 'SequelizeUniqueConstraintError') {
 				return res.status(400).send({ error: 'This username is already taken' });
 			}
