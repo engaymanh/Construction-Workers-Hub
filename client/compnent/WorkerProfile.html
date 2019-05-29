@@ -1,0 +1,32 @@
+<label>{{ userProfile.fullName }}</label>
+
+<!-- <img src="{{"
+  userProfile.url ||
+  "https://i0.wp.com/addisonavenuemarketing.com/wp-content/uploads/2016/07/facebook-avatar.jpg?fit=690%2C435"
+}}
+alt="uploaded image" height="150" width="200" /> -->
+<label>{{ userProfile.fullName }}</label>
+<label>{{ userProfile.experienceLevel }}</label>
+<label>{{ userProfile.expectedSalary }}</label>
+<label>{{ userProfile.phoneNumber }}</label>
+<label>{{ userProfile.status }}</label>
+<label>{{ userProfile.role }}</label>
+<button id="book" ng-click="book()">
+  Book Now
+</button>
+<input
+  type="tel"
+  ng-model="number"
+  id="number"
+  placeholder="Enter Phone Number..."
+/>
+<input
+  type="text"
+  ng-model="msg"
+  id="msg"
+  placeholder="Enter Text Message..."
+/>
+
+<button ng-click="sendMessage()">
+  Send Message
+</button>

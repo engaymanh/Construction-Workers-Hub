@@ -1,0 +1,45 @@
+<strong>{{ fullName }}</strong> <img src={ url ||
+'https://i0.wp.com/addisonavenuemarketing.com/wp-content/uploads/2016/07/facebook-avatar.jpg?fit=690%2C435'
+} alt="uploaded image" height="150" width="200" />
+
+<label>{{ fullName }}</label>
+<label>{{ userName }}</label>
+<label>{{ phoneNumber }}</label>
+<label>{{ siteLocation }}</label>
+
+<button value="Smiths">
+  Smiths
+</button>
+
+<button value="Carpenters">
+  Carpenters
+</button>
+
+<button value="Stone Builders">
+  Stone Builders
+</button>
+
+<button value="Painters">
+  Painters
+</button>
+<div>
+  <table>
+    <tbody>
+      <tr ng-repeat="user in users">
+        <td>{{ user.fullName }}</td>
+        <td>{{ user.experienceLevel }}</td>
+        <td>{{ user.status }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button
+            value="GoToProfile"
+            id="user.id"
+            ng-click="showProfile($index)"
+          >
+            Go To Profile
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

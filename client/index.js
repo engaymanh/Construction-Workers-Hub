@@ -13,15 +13,19 @@ app.config(function($routeProvider) {
 			templateUrl: './compnent/signupEng.html',
 			controller: 'signupEng'
 		})
+		.when('/WorkerProfile/:id', {
+			templateUrl: './compnent/WorkerProfile.html',
+			controller: 'WorkerProfile'
+		})
+		.when('/workerscategory', {
+			templateUrl: './compnent/workerscategory.html',
+			controller: 'workerscategory'
+		})
 		.when('/workerPage', {
 			templateUrl: './compnent/workerMainPage.html',
 			controller: 'workerMainPageController'
 		});
 });
-
-app.controller('testctrl', function($scope) {
-	$scope.msg = 'homeeeeeeeee';
-});
-app.controller('signup', function($scope) {
-	$scope.msg = 'signup';
+app.service('worker_id_service', function() {
+	var worker_id;
 });
