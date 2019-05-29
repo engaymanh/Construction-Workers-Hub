@@ -1,9 +1,17 @@
-var app = angular.module("app", ["ngRoute"]);
+var app = angular.module("app", ["ngRoute", "firebase"]);
 app.config(function($routeProvider) {
   $routeProvider
+    .when("/", {
+      templateUrl: "./compnent/homehtml.html",
+      controller: "testctrl"
+    })
     .when("/signup", {
       templateUrl: "./compnent/signup.html",
-      controller: "signupController"
+      controller: "signup"
+    })
+    .when("/signupEng", {
+      templateUrl: "./compnent/signupEng.html",
+      controller: "signupEng"
     })
     .when("/WorkerProfile/:id", {
       templateUrl: "./compnent/WorkerProfile.html",
@@ -12,10 +20,6 @@ app.config(function($routeProvider) {
     .when("/workerscategory", {
       templateUrl: "./compnent/workerscategory.html",
       controller: "workerscategory"
-    })
-    .when("/", {
-      templateUrl: "./compnent/homehtml.html",
-      controller: "homeController"
     });
 });
 app.service("worker_id_service", function() {

@@ -6,13 +6,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-resource.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="./firebase/firebase.js" ></script>
   </head>
   <body ng-app="app">
-      <ng-view>
-    <script src="index.js"></script>
-    <script src="./compnent/homeController.js"></script>
+    <ng-view>
+      <script src="index.js"></script>
+      <script src="./compnent/signupEngCntroller.js" ></script>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.0.4/firebase-app.js"></script>
+<script src="./compnent/homeController.js"></script>
     <script src="./compnent/signupController.js"></script>
     <script src="./compnent/WorkerProfile.js"></script>
     <script src="./compnent/workerscategory.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#reserved-urls -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
   </body>
 </html>
