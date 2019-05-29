@@ -1,11 +1,12 @@
 app.controller('workerMainPageController', function($scope, $http, $log) {
-	$scope.engName = 'hi';
 	$scope.fullName = '';
 	$scope.expectedSalary = '';
 	$scope.experienceLevel = '';
 	$scope.phoneNumber = '';
 	$scope.url =
 		'https://i0.wp.com/addisonavenuemarketing.com/wp-content/uploads/2016/07/facebook-avatar.jpg?fit=690%2C435';
+	$scope.reqMessage = '';
+	$scope.request = true;
 	const token = localStorage.getItem('token');
 	const successCallBackEngName = (response) => {
 		$scope.engName = response.data.engineerName;
@@ -45,6 +46,17 @@ app.controller('workerMainPageController', function($scope, $http, $log) {
 			url: '/workerMainPage'
 		}).then(successCallBackEngName, errorCallBack);
 	};
+	$scope.checkRequest = () => {
+		if ($scope.engName) {
+			$scope.reqMessage = `you have request from ${$scope.engName} , check your mobile and then please click on `;
+		} else {
+			$scope.reqMessage = `you dont have any request yet,`;
+			$scope.request = false;
+		}
+		$log.info('hello');
+		$log.info($scope.request);
+	};
+	$scope.checkRequest();
 	workerPage();
 	gitEngName();
 });
