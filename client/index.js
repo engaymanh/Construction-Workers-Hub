@@ -32,6 +32,10 @@ app.config(function($routeProvider) {
 		.when('/workerPage', {
 			templateUrl: './compnent/workerMainPage.html',
 			controller: 'workerMainPageController'
+		})
+		.when('/about', {
+			templateUrl: './compnent/about.html',
+			controller: 'aboutController'
 		});
 });
 app.service('worker_id_service', function() {
