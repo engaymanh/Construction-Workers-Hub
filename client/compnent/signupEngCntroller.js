@@ -78,27 +78,3 @@ app.controller('signupEng', [
 		};
 	}
 ]);
-// var that = this;
-// fetch('/signupEngineer', {
-// 	method: 'POST',
-// 	body: JSON.stringify(engineer),
-// 	headers: {
-// 		'Content-Type': 'application/json'
-// 	}
-// })
-// 	.then((response) => {
-// 		return response.json();
-// 	})
-// 	.then((response) => {
-// 		if (response.success === 'Sign up as engineer successful') {
-// 			that.setState({
-// 				username: '',
-// 				password: '',
-// 				toggleSignIn: true,
-// 				toggleSignUp: false
-// 			});
-// 			console.log(response.success);
-// 		} else {
-// 			console.log(response.error);
-// 		}
-// 	});
