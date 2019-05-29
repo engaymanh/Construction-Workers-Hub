@@ -12,6 +12,10 @@ app.config(function($routeProvider) {
 		.when('/signupEng', {
 			templateUrl: './compnent/signupEng.html',
 			controller: 'signupEng'
+		})
+		.when('/signinEng', {
+			templateUrl: './compnent/signinEng.html',
+			controller: 'signinEng'
 		});
 });
 

@@ -1,0 +1,33 @@
+<div>
+<!-- <NavLink to="/" activeStyle={{ color: 'white' }}>
+    <h2 id="homeButton">Home</h2>
+</NavLink> -->
+{this.state.toggleSignIn ? (
+    <div>
+        <h1 >
+            Engineer Sign In {{username}}
+        </h1>
+        <br />
+        <input type="text" name="username" placeholder="userName" ng-model='username' />
+        <br />
+        <input
+        type="password"
+        name="password"
+        placeholder="password"
+        ng-model='password'
+        />
+        <br />
+        <button ng-click='engineerSignIn()' className="Button">
+            Sign In
+        </button>
+    </div>
+    ) : (
+        <EngineerMainPage
+        fullName={this.state.fullName}
+        userName={this.state.username}
+        phoneNumber={this.state.phoneNumber}
+        siteLocation={this.state.siteLocation}
+        url={this.state.url}
+        />
+        )}
+    </div>
