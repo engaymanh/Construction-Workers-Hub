@@ -16,14 +16,14 @@ app.controller('workerSignup', function($scope, $http) {
 		'' ||
 		'https://i0.wp.com/addisonavenuemarketing.com/wp-content/uploads/2016/07/facebook-avatar.jpg?fit=690%2C435';
 
-	$scope.handleChange = function(e) {
+	$scope.handleChange = (e) => {
 		if (e.target.files[0]) {
 			const image = e.target.files[0];
 			console.log(image);
 		}
 	};
 
-	$scope.handleUpload = function() {
+	$scope.handleUpload = () => {
 		const { image } = this.state;
 		const uploadTask = storage.ref(`images/${image.name}`).put(image);
 		uploadTask.on(
@@ -41,7 +41,7 @@ app.controller('workerSignup', function($scope, $http) {
 		);
 	};
 
-	$scope.signUp = function() {
+	$scope.signUp = () => {
 		console.log('hhhhhh');
 		var { fullname, username, password, phonenumber, experiencelevel, expectedsalary, role, status, url } = $scope;
 		var info = { fullname, username, password, phonenumber, experiencelevel, expectedsalary, role, status, url };
@@ -56,7 +56,7 @@ app.controller('workerSignup', function($scope, $http) {
 		);
 	};
 
-	$scope.show = function() {
+	$scope.show = () => {
 		let that = this;
 		let mess = 'hello';
 		new Noty({

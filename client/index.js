@@ -12,5 +12,9 @@ app.config(function($routeProvider) {
 		.when('/workerSignup', {
 			templateUrl: './compnent/workerSignup.html',
 			controller: 'workerSignup'
+		})
+		.when('/workerSignin', {
+			templateUrl: './compnent/workerSignin.html',
+			controller: 'workerSignin'
 		});
 });
