@@ -3,11 +3,11 @@ app.controller('signinEng', [
 	'$http',
 	'$location',
 	function($scope, $http, $location) {
-		$scope.username = '';
+		$scope.username = 'sdsdsd';
 		$scope.password = '';
 		$scope.fullName = '';
-		$scope.phonenumber = '';
-		$scope.siteLocation = '';
+		$scope.phonenumber = 'sdsd';
+		$scope.siteLocation = 'sds';
 		$scope.url = '' || 'https://avatarfiles.alphacoders.com/129/129186.jpg';
 		var x = $scope;
 		$scope.engineerSignIn = function() {

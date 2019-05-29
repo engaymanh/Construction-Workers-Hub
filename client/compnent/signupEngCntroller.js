@@ -1,4 +1,3 @@
-// const { storage } = require('../../client_react/firebase');
 app.controller('signupEng', [
 	'$scope',
 	'$http',
