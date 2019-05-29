@@ -40,6 +40,10 @@ app.config(function($routeProvider) {
 		.when('/engPage', {
 			templateUrl: './compnent/engPage.html',
 			controller: 'signinEng'
+		})
+		.when('/about', {
+			templateUrl: './compnent/about.html',
+			controller: 'aboutController'
 		});
 });
 app.service('worker_id_service', function() {
