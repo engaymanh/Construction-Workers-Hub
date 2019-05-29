@@ -1,4 +1,4 @@
-app.controller('workerSignin', function($scope, $http) {
+app.controller('workerSignin', function($scope, $http, $location) {
 	$scope.msg = 'Hello hard worker';
 	$scope.username = '';
 	$scope.password = '';
@@ -15,26 +15,28 @@ app.controller('workerSignin', function($scope, $http) {
 	$scope.signIn = () => {
 		var { username, password } = $scope;
 		var worker = { username, password };
+		console.log(worker);
 		$http({
 			method: 'POST',
 			url: '/signinWorker',
-			body: JSON.stringify(worker),
+			data: JSON.stringify(worker),
 			headers: {
 				'Content-Type': 'application/json'
 			}
-		}).then(function successCallback(response) {
-			if (response.status == 200) {
-				response.json().then((body) => {
-					const token = body.token;
+		})
+			.then(function successCallback(response) {
+				console.log('hi');
+				if (response.status == 200) {
+					const token = response.token;
 					localStorage.setItem('token', token);
 					$scope.username = '';
 					$scope.password = '';
-				}),
-					function errorCallback(response) {
-						console.log('err');
-					};
-			}
-		});
+					$location.path('/workerMainPage' + token);
+				}
+			})
+			.catch(function errorCallback(response) {
+				console.log('err');
+			});
 	};
 
 	$scope.workerPage = () => {
