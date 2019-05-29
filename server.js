@@ -302,6 +302,7 @@ app.get('/painter', function(req, res) {
 		});
 });
 
+<<<<<<< HEAD
 //shows the profile of all construction workers category from the engineer side
 app.get('/engineerworker/:id', function(req, res) {
 	const userId = req.params.id;
@@ -325,6 +326,36 @@ app.get('/engineerworker/:id', function(req, res) {
 		.catch(function(err) {
 			return res.status(500).send(err);
 		});
+=======
+//shows the profile of all construction workers category from the engineer side ******
+app.get("/engineerworker", function(req, res) {
+  // const userId = req.params.id;
+  // console.log(userId);
+  worker
+    .findAll({
+      //  where: { id: userId }
+    })
+    .then(function(user) {
+      return res.send(
+        user
+        //   [
+        //   {
+        //     fullName: user.fullName,
+        //     experienceLevel: user.experienceLevel,
+        //     expectedSalary: user.expectedSalary,
+        //     phoneNumber: user.phoneNumber,
+        //     status: user.status,
+        //     role: user.role,
+        //     username: user.userName,
+        //     url: user.url
+        //   }
+        // ]
+      );
+    })
+    .catch(function(err) {
+      return res.status(500).send(err);
+    });
+>>>>>>> 184e136732db70f84ed7060dfbc8f84067ce1172
 });
 
 //adds the name of the engineer and worker in the orders table
@@ -400,6 +431,7 @@ const nexmo = new Nexmo(
 );
 
 //send sms message
+<<<<<<< HEAD
 app.post('/sentMessage', function(req, res) {
 	console.log(req.body);
 	let from = 'Bug-Busters-200';
@@ -421,6 +453,36 @@ app.post('/sentMessage', function(req, res) {
 		}
 	});
 	console.log(data);
+=======
+app.post("/sentMessage", function(req, res) {
+  console.log("ggggg", req.body, "gghgggggg");
+  let from = "Cyber-Ninjas";
+  let to = req.body.number;
+  let text = req.body.msg;
+  res.status(201).send("sended");
+  //********* */ nexmo.message.sendSms(
+  //   from,
+  //   to,
+  //   text,
+  //   { type: "unicode" },
+  //   (err, responseData) => {
+  //     if (err) {
+  //       console.log(err);
+  //     } else {
+  //       console.dir(responseData);
+  //       //Get data from response
+  //       const data = {
+  //         id: responseData.messages[0]["message-id"],
+  //         number: responseData.messages[0]["to"]
+  //       };
+
+  //       //Emit to client
+  // io.emit('smsStatus', data);
+  //     }
+  //   }
+  // );
+  // console.log(data);
+>>>>>>> 184e136732db70f84ed7060dfbc8f84067ce1172
 });
 
 const server = app.listen(port, () => {
@@ -435,3 +497,30 @@ const server = app.listen(port, () => {
 // 		console.log('Disconnected');
 // 	});
 // });
+
+//shows the profile of all construction workers category from the engineer side ******
+app.get("/engineerworker/:id", function(req, res) {
+  const userId = req.params.id;
+  // console.log(userId);
+  worker
+    .findOne({
+      where: { id: userId }
+    })
+    .then(function(user) {
+      return res.send([
+        {
+          fullName: user.fullName,
+          experienceLevel: user.experienceLevel,
+          expectedSalary: user.expectedSalary,
+          phoneNumber: user.phoneNumber,
+          status: user.status,
+          role: user.role,
+          username: user.userName,
+          url: user.url
+        }
+      ]);
+    })
+    .catch(function(err) {
+      return res.status(500).send(err);
+    });
+});
