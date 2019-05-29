@@ -39,28 +39,4 @@ app.controller('workerSignin', function($scope, $http, $location) {
 				console.log('err');
 			});
 	};
-
-	// $scope.workerPage = () => {
-	// 	const token = localStorage.getItem('token');
-	// 	$http({
-	// 		method: 'GET',
-	// 		url: '/workerPage',
-	// 		headers: { 'x-access-token': token }
-	// 	}).then(function successCallback(response) {
-	// 		if (response.status == 200) {
-	// 			response.json().then((body) => {
-	// 				$scope.fullName = body.fullName;
-	// 				$scope.phoneNumber = body.phoneNumber;
-	// 				$scope.experienceLevel = body.experienceLevel;
-	// 				$scope.expectedSalary = body.expectedSalary;
-	// 				$scope.role = body.role;
-	// 				$scope.status = body.status;
-	// 				$scope.url = body.url;
-	// 			}),
-	// 				function errorCallback(response) {
-	// 					console.log('err');
-	// 				};
-	// 		}
-	// 	});
-	// };
 });
