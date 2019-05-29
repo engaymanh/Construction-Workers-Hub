@@ -63,6 +63,7 @@ app.post('/signinEngineer', function(req, res) {
 		if (!user) {
 			return res.status(401).send({ error: 'Please sign up' });
 		}
+		console.log(user.dataValues);
 		//Compare with stored password
 		const existingHashedPassword = user.password;
 		bcrypt.compare(password, existingHashedPassword).then(function(isMatching) {
@@ -71,7 +72,7 @@ app.post('/signinEngineer', function(req, res) {
 				const token = jwt.sign({ username: user.userName }, SECRET_KEY, {
 					expiresIn: 900
 				});
-				return res.send({ token: token });
+				return res.send({ token: token, data: user.dataValues });
 			} else {
 				return res.status(401).send({ error: 'Wrong password' });
 			}

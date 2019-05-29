@@ -39,7 +39,7 @@ app.config(function($routeProvider) {
 		})
 		.when('/engPage', {
 			templateUrl: './compnent/engPage.html',
-			controller: 'engPage'
+			controller: 'signinEng'
 		});
 });
 app.service('worker_id_service', function() {
