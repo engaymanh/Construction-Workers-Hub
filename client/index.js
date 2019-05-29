@@ -3,6 +3,10 @@ app.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: './compnent/homehtml.html',
+			controller: 'testctrl'
+		})
+		.when('/signup', {
+			templateUrl: './compnent/signup.html',
 			controller: 'homeController'
 		})
 		.when('/workerSignup', {
@@ -24,6 +28,10 @@ app.config(function($routeProvider) {
 		.when('/workerscategory', {
 			templateUrl: './compnent/workerscategory.html',
 			controller: 'workerscategory'
+		})
+		.when('/workerPage', {
+			templateUrl: './compnent/workerMainPage.html',
+			controller: 'workerMainPageController'
 		});
 });
 app.service('worker_id_service', function() {
