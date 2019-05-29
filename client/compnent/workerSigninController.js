@@ -27,11 +27,12 @@ app.controller('workerSignin', function($scope, $http, $location) {
 			.then(function successCallback(response) {
 				console.log('hi');
 				if (response.status == 200) {
-					const token = response.token;
+					const token = response.data.token;
+					console.log(response);
 					localStorage.setItem('token', token);
 					$scope.username = '';
 					$scope.password = '';
-					$location.path('/workerMainPage' + token);
+					$location.path('/workerPage');
 				}
 			})
 			.catch(function errorCallback(response) {
@@ -39,27 +40,27 @@ app.controller('workerSignin', function($scope, $http, $location) {
 			});
 	};
 
-	$scope.workerPage = () => {
-		const token = localStorage.getItem('token');
-		$http({
-			method: 'GET',
-			url: '/workerPage',
-			headers: { 'x-access-token': token }
-		}).then(function successCallback(response) {
-			if (response.status == 200) {
-				response.json().then((body) => {
-					$scope.fullName = body.fullName;
-					$scope.phoneNumber = body.phoneNumber;
-					$scope.experienceLevel = body.experienceLevel;
-					$scope.expectedSalary = body.expectedSalary;
-					$scope.role = body.role;
-					$scope.status = body.status;
-					$scope.url = body.url;
-				}),
-					function errorCallback(response) {
-						console.log('err');
-					};
-			}
-		});
-	};
+	// $scope.workerPage = () => {
+	// 	const token = localStorage.getItem('token');
+	// 	$http({
+	// 		method: 'GET',
+	// 		url: '/workerPage',
+	// 		headers: { 'x-access-token': token }
+	// 	}).then(function successCallback(response) {
+	// 		if (response.status == 200) {
+	// 			response.json().then((body) => {
+	// 				$scope.fullName = body.fullName;
+	// 				$scope.phoneNumber = body.phoneNumber;
+	// 				$scope.experienceLevel = body.experienceLevel;
+	// 				$scope.expectedSalary = body.expectedSalary;
+	// 				$scope.role = body.role;
+	// 				$scope.status = body.status;
+	// 				$scope.url = body.url;
+	// 			}),
+	// 				function errorCallback(response) {
+	// 					console.log('err');
+	// 				};
+	// 		}
+	// 	});
+	// };
 });
