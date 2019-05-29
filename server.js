@@ -91,7 +91,7 @@ app.post('/signupWorker', function(req, res) {
 	const status = req.body.info.status;
 	const url = req.body.info.url;
 	const hashedPassword = bcrypt.hashSync(password, 10);
-
+	console.log(req.body.info);
 	worker
 		.create({
 			fullName: fullName,
@@ -302,25 +302,32 @@ app.get('/painter', function(req, res) {
 		});
 });
 
-//shows the profile of all construction workers category from the engineer side
-app.get('/engineerworker/:id', function(req, res) {
-	const userId = req.params.id;
-	console.log(userId);
+//shows the profile of all construction workers category from the engineer side ******
+app.get('/engineerworker', function(req, res) {
+	// const userId = req.params.id;
+	// console.log(userId);
 	worker
-		.findOne({ where: { id: userId } })
+		.findAll(
+			{
+				//  where: { id: userId }
+			}
+		)
 		.then(function(user) {
-			return res.send([
-				{
-					fullName: user.fullName,
-					experienceLevel: user.experienceLevel,
-					expectedSalary: user.expectedSalary,
-					phoneNumber: user.phoneNumber,
-					status: user.status,
-					role: user.role,
-					username: user.userName,
-					url: user.url
-				}
-			]);
+			return res.send(
+				user
+				//   [
+				//   {
+				//     fullName: user.fullName,
+				//     experienceLevel: user.experienceLevel,
+				//     expectedSalary: user.expectedSalary,
+				//     phoneNumber: user.phoneNumber,
+				//     status: user.status,
+				//     role: user.role,
+				//     username: user.userName,
+				//     url: user.url
+				//   }
+				// ]
+			);
 		})
 		.catch(function(err) {
 			return res.status(500).send(err);
@@ -401,26 +408,33 @@ const nexmo = new Nexmo(
 
 //send sms message
 app.post('/sentMessage', function(req, res) {
-	console.log(req.body);
-	let from = 'Bug-Busters-200';
+	console.log('ggggg', req.body, 'gghgggggg');
+	let from = 'Cyber-Ninjas';
 	let to = req.body.number;
 	let text = req.body.msg;
-	nexmo.message.sendSms(from, to, text, { type: 'unicode' }, (err, responseData) => {
-		if (err) {
-			console.log(err);
-		} else {
-			console.dir(responseData);
-			//Get data from response
-			const data = {
-				id: responseData.messages[0]['message-id'],
-				number: responseData.messages[0]['to']
-			};
+	res.status(201).send('sended');
+	//********* */ nexmo.message.sendSms(
+	//   from,
+	//   to,
+	//   text,
+	//   { type: "unicode" },
+	//   (err, responseData) => {
+	//     if (err) {
+	//       console.log(err);
+	//     } else {
+	//       console.dir(responseData);
+	//       //Get data from response
+	//       const data = {
+	//         id: responseData.messages[0]["message-id"],
+	//         number: responseData.messages[0]["to"]
+	//       };
 
-			//Emit to client
-			// io.emit('smsStatus', data);
-		}
-	});
-	console.log(data);
+	//       //Emit to client
+	// io.emit('smsStatus', data);
+	//     }
+	//   }
+	// );
+	// console.log(data);
 });
 
 const server = app.listen(port, () => {
@@ -435,3 +449,30 @@ const server = app.listen(port, () => {
 // 		console.log('Disconnected');
 // 	});
 // });
+
+//shows the profile of all construction workers category from the engineer side ******
+app.get('/engineerworker/:id', function(req, res) {
+	const userId = req.params.id;
+	// console.log(userId);
+	worker
+		.findOne({
+			where: { id: userId }
+		})
+		.then(function(user) {
+			return res.send([
+				{
+					fullName: user.fullName,
+					experienceLevel: user.experienceLevel,
+					expectedSalary: user.expectedSalary,
+					phoneNumber: user.phoneNumber,
+					status: user.status,
+					role: user.role,
+					username: user.userName,
+					url: user.url
+				}
+			]);
+		})
+		.catch(function(err) {
+			return res.status(500).send(err);
+		});
+});

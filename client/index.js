@@ -1,4 +1,4 @@
-var app = angular.module('app', [ 'ngRoute', 'firebase' ]);
+var app = angular.module('app', [ 'ngRoute' ]);
 app.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
@@ -7,7 +7,15 @@ app.config(function($routeProvider) {
 		})
 		.when('/signup', {
 			templateUrl: './compnent/signup.html',
-			controller: 'signup'
+			controller: 'homeController'
+		})
+		.when('/workerSignup', {
+			templateUrl: './compnent/workerSignup.html',
+			controller: 'workerSignup'
+		})
+		.when('/workerSignin', {
+			templateUrl: './compnent/workerSignin.html',
+			controller: 'workerSignin'
 		})
 		.when('/signupEng', {
 			templateUrl: './compnent/signupEng.html',
@@ -16,12 +24,24 @@ app.config(function($routeProvider) {
 		.when('/signinEng', {
 			templateUrl: './compnent/signinEng.html',
 			controller: 'signinEng'
+		})
+		.when('/WorkerProfile/:id', {
+			templateUrl: './compnent/WorkerProfile.html',
+			controller: 'WorkerProfile'
+		})
+		.when('/workerscategory', {
+			templateUrl: './compnent/workerscategory.html',
+			controller: 'workerscategory'
+		})
+		.when('/workerPage', {
+			templateUrl: './compnent/workerMainPage.html',
+			controller: 'workerMainPageController'
+		})
+		.when('/engPage', {
+			templateUrl: './compnent/engPage.html',
+			controller: 'engPage'
 		});
 });
-
-app.controller('testctrl', function($scope) {
-	$scope.msg = 'homeeeeeeeee';
-});
-app.controller('signup', function($scope) {
-	$scope.msg = 'signup';
+app.service('worker_id_service', function() {
+	var worker_id;
 });

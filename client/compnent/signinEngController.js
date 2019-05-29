@@ -1,7 +1,8 @@
 app.controller('signinEng', [
 	'$scope',
 	'$http',
-	function($scope, $http) {
+	'$location',
+	function($scope, $http, $location) {
 		$scope.username = '';
 		$scope.password = '';
 		$scope.fullName = '';
@@ -26,7 +27,7 @@ app.controller('signinEng', [
 						$scope.password = '';
 						$scope.toggleSignIn = false;
 						$scope.toggleEngpage = true;
-						$scope.engineerPage();
+						$location.path('/engPage');
 					} else {
 						console.log('errrrrror');
 					}
@@ -34,28 +35,28 @@ app.controller('signinEng', [
 				(err) => console.log(err)
 			);
 		};
-		$scope.engineerPage = function() {
-			const token = localStorage.getItem('token');
-			console.log(token);
-			$http.get('/engineerPage', { headers: { 'x-access-token': token } }).then(
-				(response) => {
-					if (response.status == 200) {
-						response.json().then((body) => {
-							console.log('hi');
-							$scope.fullName = body.fullName;
-							$scope.username = body.userName;
-							$scope.phoneNumber = body.phoneNumber;
-							$scope.siteLocation = body.siteLocation;
-							$scope.url = body.url;
-						});
-					} else {
-						response.then((error) => {
-							console.log(error);
-						});
-					}
-				},
-				(err) => console.log(err)
-			);
-		};
+		// 	$scope.engineerPage = function() {
+		// 		const token = localStorage.getItem('token');
+		// 		console.log(token);
+		// 		$http.get('/engineerPage', { headers: { 'x-access-token': token } }).then(
+		// 			(response) => {
+		// 				if (response.status == 200) {
+		// 					response.json().then((body) => {
+		// 						console.log('hi');
+		// 						$scope.fullName = body.fullName;
+		// 						$scope.username = body.userName;
+		// 						$scope.phoneNumber = body.phoneNumber;
+		// 						$scope.siteLocation = body.siteLocation;
+		// 						$scope.url = body.url;
+		// 					});
+		// 				} else {
+		// 					response.then((error) => {
+		// 						console.log(error);
+		// 					});
+		// 				}
+		// 			},
+		// 			(err) => console.log(err)
+		// 		);
+		// 	};
 	}
 ]);
