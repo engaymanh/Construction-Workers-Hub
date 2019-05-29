@@ -19,15 +19,14 @@ app.controller('signinEng', [
 				(data) => {
 					console.log(data, 'data');
 					if (data.status == 200) {
-						data.json().then((result) => {
-							const token = body.token;
-							localStorage.setItem('token', token);
-							$scope.username = '';
-							$scope.password = '';
-							$scope.toggleSignIn = false;
-							$scope.toggleEngpage = true;
-							$scope.engineerPage();
-						});
+						const token = data.data;
+						console.log(token, 'token');
+						localStorage.setItem('token', token);
+						$scope.username = '';
+						$scope.password = '';
+						$scope.toggleSignIn = false;
+						$scope.toggleEngpage = true;
+						$scope.engineerPage();
 					} else {
 						console.log('errrrrror');
 					}
