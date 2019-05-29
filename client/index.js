@@ -1,4 +1,4 @@
-var app = angular.module('app', [ 'ngRoute', 'firebase' ]);
+var app = angular.module('app', [ 'ngRoute' ]);
 app.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
@@ -7,7 +7,15 @@ app.config(function($routeProvider) {
 		})
 		.when('/signup', {
 			templateUrl: './compnent/signup.html',
-			controller: 'signup'
+			controller: 'homeController'
+		})
+		.when('/workerSignup', {
+			templateUrl: './compnent/workerSignup.html',
+			controller: 'workerSignup'
+		})
+		.when('/workerSignin', {
+			templateUrl: './compnent/workerSignin.html',
+			controller: 'workerSignin'
 		})
 		.when('/signupEng', {
 			templateUrl: './compnent/signupEng.html',
