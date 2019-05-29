@@ -2,7 +2,7 @@
 <!-- <NavLink to="/" activeStyle={{ color: 'white' }}>
     <h2 id="homeButton">Home</h2>
 </NavLink> -->
-{this.state.toggleSignIn ? (
+
     <div>
         <h1 >
             Engineer Sign In {{username}}
@@ -21,7 +21,7 @@
             Sign In
         </button>
     </div>
-    ) : (
+
         <EngineerMainPage
         fullName={this.state.fullName}
         userName={this.state.username}
@@ -29,5 +29,5 @@
         siteLocation={this.state.siteLocation}
         url={this.state.url}
         />
-        )}
+        
     </div>
