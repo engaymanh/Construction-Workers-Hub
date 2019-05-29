@@ -1,6 +1,6 @@
 // import storage from '/Users/rbk-9/Desktop/Construction-Workers-Hub/client_react/firebase';
 
-app.controller('workerSignup', function($scope, $http) {
+app.controller('workerSignup', function($scope, $http, $location) {
 	$scope.fullname = '';
 	$scope.username = '';
 	$scope.password = '';
@@ -49,6 +49,7 @@ app.controller('workerSignup', function($scope, $http) {
 		$http.post('/signupWorker', { info }).then(
 			(result) => {
 				console.log(result.data);
+				$location.path('/workerSignin');
 			},
 			(error) => {
 				console.log('error');
