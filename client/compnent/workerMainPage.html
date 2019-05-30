@@ -9,14 +9,14 @@
 			height="150"
 			width="200"
 	/> -->
-	<br/>
+	<!-- <br/>
 	<br/>
 	Name: 
 	<input
 		type="text"
 		ng-model="fullName"
 		placeholder="fullName"
-	/>
+	/> -->
 	<br />
 	Phone Number: 
 	<input
@@ -71,9 +71,13 @@
 					/>
 				</div>
 				<div class="profile__header">
-				  <h4>
-					{{ userProfile.fullName }} <small>{{ userProfile.role }}</small>
-				  </h4>
+					
+						<div
+						class="wrap-input100 validate-input"  >		  
+						<input type="text" class="input100" name="username" ng-model="fullName"/>
+						<span class="focus-input100"></span>
+						<span class="label-input100">FullName</span>
+					  </div>
 				  <p class="text-muted">
 					  <h5> Profession: </h5>{{ userProfile.role }} <br />
 					  <h5> Experience: </h5>{{ userProfile.experienceLevel }}<br />
