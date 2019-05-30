@@ -12,10 +12,7 @@ app.controller('signupEng', [
 		$scope.toggleSignUp = '';
 		$scope.toggleSignIn = '';
 		$scope.image = '';
-		$scope.url =
-			'' ||
-			'https://i0.wp.com/addisonavenuemarketing.com/wp-content/uploads/2016/07/facebook-avatar.jpg?fit=690%2C435';
-
+		$scope.url = '' || 'https://cdn0.iconfinder.com/data/icons/flat-vector-2/100/77-Under_Construction-512.png';
 		$scope.onChange = function onChange(fileList) {
 			$scope.image = fileList[0];
 

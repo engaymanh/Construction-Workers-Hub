@@ -4,21 +4,20 @@ app.controller('workerMainPageController', function($scope, $http, $log, $locati
 	$scope.expectedSalary = '';
 	$scope.experienceLevel = '';
 	$scope.phoneNumber = '';
-	$scope.url =
-		'https://i0.wp.com/addisonavenuemarketing.com/wp-content/uploads/2016/07/facebook-avatar.jpg?fit=690%2C435';
+	$scope.url = 'https://cdn0.iconfinder.com/data/icons/flat-vector-2/100/77-Under_Construction-512.png';
 	const token = localStorage.getItem('token');
 	//   const successCallBackEngName = response => {
 	//     $scope.engName = response.data.engineerName;
 	//     $log.info(response);
 	//   };
 	const successCallBackWorkerPage = (response) => {
-		$scope.phoneNumber = response.data.fullName;
+		$scope.phoneNumber = response.data.phoneNumber;
 		$scope.fullName = response.data.fullName;
 		$scope.experienceLevel = response.data.experienceLevel;
 		$scope.expectedSalary = response.data.expectedSalary;
 		$scope.url =
 			response.data.url ||
-			'https://i0.wp.com/addisonavenuemarketing.com/wp-content/uploads/2016/07/facebook-avatar.jpg?fit=690%2C435';
+			'https://cdn0.iconfinder.com/data/icons/flat-vector-2/100/77-Under_Construction-512.png';
 		$log.info(response);
 	};
 	const errorCallBack = (response) => {

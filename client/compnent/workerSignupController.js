@@ -5,6 +5,7 @@ app.controller('workerSignup', [
 	'$http',
 	'$firebaseStorage',
 	'$firebaseObject',
+	'$location',
 	function($scope, $http, $location, $firebaseStorage, $firebaseObject) {
 		$scope.fullname = '';
 		$scope.username = '';
@@ -17,9 +18,7 @@ app.controller('workerSignup', [
 		$scope.toggleSignIn = false;
 		$scope.status = '';
 		$scope.image = null;
-		$scope.url =
-			'' ||
-			'https://cdn2.iconfinder.com/data/icons/factory-and-manufacturing/512/factory_manufacturing_company_industry-02-512.png';
+		$scope.url = '' || 'https://cdn0.iconfinder.com/data/icons/flat-vector-2/100/77-Under_Construction-512.png';
 		$scope.handleChange = (e) => {
 			if (e.target.files[0]) {
 				const image = e.target.files[0];
