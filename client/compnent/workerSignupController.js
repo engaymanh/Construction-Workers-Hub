@@ -19,7 +19,7 @@ app.controller('workerSignup', [
 		$scope.image = null;
 		$scope.url =
 			'' ||
-			'https://i0.wp.com/addisonavenuemarketing.com/wp-content/uploads/2016/07/facebook-avatar.jpg?fit=690%2C435';
+			'https://cdn2.iconfinder.com/data/icons/factory-and-manufacturing/512/factory_manufacturing_company_industry-02-512.png';
 
 		$scope.signUp = () => {
 			console.log('hhhhhh');

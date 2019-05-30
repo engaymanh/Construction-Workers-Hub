@@ -3,46 +3,50 @@
 </div>
 <div>
 	<h2>
-			<strong>WELCOME {{fullName}} TO YOUR PROFILE</strong>
+		<strong>WELCOME {{fullName}} TO YOUR PROFILE</strong>
 	</h2>
 	<br />
 	<img
-src= "{{url}}"
-
+		src= "{{url}}"
 			alt="uploaded image"
 			height="150"
 			width="200"
 	/>
 	<br/>
 	<br/>
-	Name: <input
-	type="text"
+	Name: 
+	<input
+		type="text"
 		ng-model="fullName"
-	placeholder="fullName"
-/>
-<br />
-
-Phone Number: <input
-type="text"
-ng-model="phoneNumber"
-placeholder="phoneNumber"
-/>
-<br />
-ExperienceLevel: <input
-type="text"
-	ng-model="experienceLevel"
-placeholder="experienceLevel"
-/>
-<br />
-expectedSalary: <input
-type="text"
-	ng-model="expectedSalary"
-placeholder="expectedSalary"
-/>
-<br />
-
-{{engName}} 
-<h1> you have request from {{engName}} , check your mobile </h1>
- <h2> you dont have any request yet, </h2>
-	<button onClick = "">Update</button> 
+		placeholder="fullName"
+	/>
+	<br />
+	Phone Number: 
+	<input
+		type="text"
+		ng-model="phoneNumber"
+		placeholder="phoneNumber"
+	/>
+	<br />
+	ExperienceLevel: 
+	<input
+		type="text"
+		ng-model="experienceLevel"
+		placeholder="experienceLevel"
+	/>
+	<br />
+	expectedSalary: 
+	<input
+		type="text"
+		ng-model="expectedSalary"
+		placeholder="expectedSalary"
+	/>
+	<br />
+	<div>
+		<div>
+			{{reqMessage}}
+			<button onClick = "" ng-hide='!request' >Confirm</button>
+		</div>
+	</div>
+		<button onClick = "">Update</button> 
 </div>
