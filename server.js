@@ -143,7 +143,7 @@ app.post("/signinWorker", function(req, res) {
           SECRET_KEY,
           { expiresIn: 900 }
         );
-        return res.status(200).send({ token: token });
+        return res.send({ token: token });
       } else {
         return res.status(401).send({ error: "Wrong password" });
       }
