@@ -23,15 +23,19 @@ app.controller("workerSignin", function($scope, $http, $location) {
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(function successCallback(response) {
-      if (response.status == 200) {
-        const token = response.token;
-        localStorage.setItem("token", token);
-        $scope.username = "";
-        $scope.password = "";
-        $location.path("/workerPage");
-      }
-    });
+    })
+      .then(function successCallback(response) {
+        if (response.status == 200) {
+          const token = response.data.token;
+          localStorage.setItem("token", token);
+          $scope.username = "";
+          $scope.password = "";
+          $location.path("/workerPage");
+        }
+      })
+      .catch(function errorCallback(response) {
+        console.log("error");
+      });
   };
 
   // $scope.workerPage = () => {

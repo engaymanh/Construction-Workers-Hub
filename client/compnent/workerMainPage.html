@@ -1,135 +1,141 @@
 <div>
-	<!-- <h2>
-		<strong>WELCOME {{fullName}} TO YOUR PROFILE</strong>
-	</h2>
-	<br /> -->
-	<!-- <img
-		src= "{{url}}"
-			alt="uploaded image"
-			height="150"
-			width="200"
-	/> -->
-	<!-- <br/>
-	<br/>
-	Name: 
-	<input
-		type="text"
-		ng-model="fullName"
-		placeholder="fullName"
-	/> -->
-	<br />
-	Phone Number: 
-	<input
-		type="text"
-		ng-model="phoneNumber"
-		placeholder="phoneNumber"
-	/>
-	<br />
-	ExperienceLevel: 
-	<input
-		type="text"
-		ng-model="experienceLevel"
-		placeholder="experienceLevel"
-	/>
-	<br />
-	expectedSalary: 
-	<input
-		type="text"
-		ng-model="expectedSalary"
-		placeholder="expectedSalary"
-	/>
-	<br />
-	<div>
+		<h2>
+			<strong>WELCOME {{fullName}} TO YOUR PROFILE</strong>
+		<!-- </h2>
+		<br />
+		<img
+			src= "{{url}}"
+				alt="uploaded image"
+				height="150"
+				width="200"
+		/>
+		<br/>
+		<br/>
+		Name: 
+		<input
+			type="text"
+			ng-model="fullName"
+			placeholder="fullName"
+		/>
+		<br />
+		Phone Number: 
+		<input
+			type="text"
+			ng-model="phoneNumber"
+			placeholder="phoneNumber"
+		/>
+		<br />
+		ExperienceLevel: 
+		<input
+			type="text"
+			ng-model="experienceLevel"
+			placeholder="experienceLevel"
+		/>
+		<br />
+		expectedSalary: 
+		<input
+			type="text"
+			ng-model="expectedSalary"
+			placeholder="expectedSalary"
+		/>
+		<br /> -->
 		<div>
-			{{reqMessage}}
-			<button onClick = "" ng-hide='!request' >Confirm</button>
+			<div>
+				{{reqMessage}}
+				<button onClick = "" ng-hide='!request' >Confirm</button>
+			</div>
 		</div>
+			<button onClick = "">Update</button> 
 	</div>
-		<button onClick = "">Update</button> 
-</div>
-
-
-
-<div class="container">
-		<div class="row">
-		  <div class="col-xs-12 col-sm-9" style="margin: 40px auto;">
-			<!-- User profile -->
-			<div class="panel panel-default">
-			  <div class="panel-heading">
-				<h4 class="panel-title">
-						WELCOME {{fullName}} TO YOUR PROFILE
-				  <!-- Welcom to {{ userProfile.fullName }} profile -->
-				</h4>
-			  </div>
-			  <div class="panel-body">
-				<div class="profile__avatar">
-						<img
-						src= "{{url}}"
+	
+	<form class="login100-form validate-form">
+			<span class="login100-form-title p-b-43">
+				Sign Up for construction Workers
+			</span>
+			<h4 > Upload profile photo </h4>
+						<input type="file" ng-model="handleChange" />
+						<button ng-click="handleUpload">
+							Upload
+			</button>
+			<img
+							ng-src=
+								"{{url}}" 
 							alt="uploaded image"
 							height="150"
 							width="200"
-					/>
-				</div>
-				<div class="profile__header">
-					
-						<div
-						class="wrap-input100 validate-input"  >		  
-						<input type="text" class="input100" name="username" ng-model="fullName"/>
-						<span class="focus-input100"></span>
-						<span class="label-input100">FullName</span>
-					  </div>
-				  <p class="text-muted">
-					  <h5> Profession: </h5>{{ userProfile.role }} <br />
-					  <h5> Experience: </h5>{{ userProfile.experienceLevel }}<br />
-					  <h5>Status now: </h5>{{ userProfile.status }}<br />
-				  </p>
-				  <p>
-					  <h5> Expected Salary: </h5>{{ userProfile.expectedSalary }} <br />
-					  <h5> Phone Number: </h5>{{ userProfile.phoneNumber }}<br />
-				  </p>
-				</div>
-			  </div>
+						/>
+			<!-- <div
+			  class="wrap-input100 validate-input"
+			  data-validate="Valid email is required: ex@abc.xyz"
+			> -->
+			<!-- <input class="input100" type="text" name="email" /> -->
+			<div
+			  class="wrap-input100 validate-input" >
+			  <input type="text" name="fullname" class="input100"  ng-model="fullname" />
+			  <span class="focus-input100"></span>
+			  <span class="label-input100">fullname</span>
 			</div>
-		  </div>
-		</div>
-	  </div>
-	  <!-- <div class="container">
-		  <div class="row">
-			<div class="col-xs-12 col-sm-9">
-	  <div class="panel panel-default">
-		  <div class="panel-heading">
-		  <h4 class="panel-title">Send Message</h4>
-		  </div>
-		  <div class="panel-body">
-			<table class="table profile__table">
-			  <tbody>
-				<tr>
-				  <th><strong>Your Number</strong></th>
-				  <td><input
-					type="tel"
-					ng-model="number"
-					id="number"
-					placeholder="Enter Phone Number..."
-				  /></td>
-				</tr>
-				<tr>
-				  <th><strong>Text Message</strong></th>
-				  <td><input
-					type="text"
-					ng-model="msg"
-					id="msg"
-					placeholder="Enter Text Message..."
-				  /></td>
-				</tr>
-				<tr>
-				  <td ><button id="book" ng-click="book()"  class="login100-form-btn">
-					  Book Now
-					</button></td><td >{{booked}}</td>
-				</tr>
-			  </tbody>
-			</table>
-		  </div>
-		</div>
-	  </div>
-	  </div>
-	  </div> -->
+		   
+			<div
+			  class="wrap-input100 validate-input" >
+			  <input type="text" name="username" class="input100" ng-model= "username"/>
+			  <span class="focus-input100"></span>
+			  <span class="label-input100">username</span>
+			</div>
+			<div
+			  class="wrap-input100 validate-input" >
+			  <input type="number" name="phonenumber" class="input100"  ng-model="phonenumber" />
+			  <span class="focus-input100"></span>
+			  <span class="label-input100">phonenumber</span>
+			</div>
+			
+			  <div
+			  class="wrap-input100 validate-input" >
+			  <input
+			  type="number"
+			  class="input100"
+							name="expectedsalary"
+							
+							ng-model="expectedsalary"
+						/>
+			  <span class="focus-input100"></span>
+			  <span class="label-input100">expectedsalary / hour</span>
+			</div>
+			
+			<div
+			  class="wrap-input100 validate-input" >
+			  <select name="role" ng-model="role">
+				  <option value="Painter">Painter </option>
+				  <option value="Carpenter">Carpenter</option>
+				  <option value="Stone Builde">Stone Builder </option>
+				  <option value="Smith">Smith</option>
+			  </select>
+			  <span class="focus-input100"></span>
+			  <span class="label-input100">Role</span>
+			</div>
+			<div
+			  class="wrap-input100 validate-input" >
+			  <select name="experiencelevel" ng-model="experiencelevel">
+				  <option value="Professional">Professional</option>
+				  <option value="Intermediate">Intermediate</option>
+				  <option value="Beginner">Beginner </option>
+			  </select>
+			  <span class="focus-input100"></span>
+			  <span class="label-input100">Experience level:</span>
+			</div>
+	
+			<div
+			  class="wrap-input100 validate-input" >
+			  <select name="status" ng-model="status">
+				<option value="Available">Available </option>
+				  <option value="Not Available">Not Available</option>
+			  </select>
+			  <span class="focus-input100"></span>
+			  <span class="label-input100">Status</span>
+			</div>
+			<div class="container-login100-form-btn">
+				<button id="signUpWorker" ng-click="signUp()" class="login100-form-btn">
+					Update
+				  </button>
+			</div>
+	
