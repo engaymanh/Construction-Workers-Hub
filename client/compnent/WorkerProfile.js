@@ -26,9 +26,16 @@ app.controller("WorkerProfile", function($scope, $http, worker_id_service) {
   $scope.book = function() {
     if ($scope.userProfile.status === "not Available") {
       $scope.booked = " not availbale at the moment";
+      setTimeout(() => {
+        $scope.booked = "";
+      }, 1000);
       return;
     } else {
-      $scope.booked = " successfully send request wait for response ";
+      $scope.booked = " Successfully send request wait for response ! ";
+      setTimeout(() => {
+        $scope.booked = "";
+      }, 2000);
+
       $http({
         method: "put",
         url: `/engineerworker/${$scope.worker_id}`,

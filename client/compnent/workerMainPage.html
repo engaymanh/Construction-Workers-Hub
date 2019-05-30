@@ -1,14 +1,14 @@
 <div>
-	<h2>
+	<!-- <h2>
 		<strong>WELCOME {{fullName}} TO YOUR PROFILE</strong>
 	</h2>
-	<br />
-	<img
+	<br /> -->
+	<!-- <img
 		src= "{{url}}"
 			alt="uploaded image"
 			height="150"
 			width="200"
-	/>
+	/> -->
 	<br/>
 	<br/>
 	Name: 
@@ -47,3 +47,85 @@
 	</div>
 		<button onClick = "">Update</button> 
 </div>
+
+
+
+<div class="container">
+		<div class="row">
+		  <div class="col-xs-12 col-sm-9" style="margin: 40px auto;">
+			<!-- User profile -->
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+				<h4 class="panel-title">
+						WELCOME {{fullName}} TO YOUR PROFILE
+				  <!-- Welcom to {{ userProfile.fullName }} profile -->
+				</h4>
+			  </div>
+			  <div class="panel-body">
+				<div class="profile__avatar">
+						<img
+						src= "{{url}}"
+							alt="uploaded image"
+							height="150"
+							width="200"
+					/>
+				</div>
+				<div class="profile__header">
+				  <h4>
+					{{ userProfile.fullName }} <small>{{ userProfile.role }}</small>
+				  </h4>
+				  <p class="text-muted">
+					  <h5> Profession: </h5>{{ userProfile.role }} <br />
+					  <h5> Experience: </h5>{{ userProfile.experienceLevel }}<br />
+					  <h5>Status now: </h5>{{ userProfile.status }}<br />
+				  </p>
+				  <p>
+					  <h5> Expected Salary: </h5>{{ userProfile.expectedSalary }} <br />
+					  <h5> Phone Number: </h5>{{ userProfile.phoneNumber }}<br />
+				  </p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- <div class="container">
+		  <div class="row">
+			<div class="col-xs-12 col-sm-9">
+	  <div class="panel panel-default">
+		  <div class="panel-heading">
+		  <h4 class="panel-title">Send Message</h4>
+		  </div>
+		  <div class="panel-body">
+			<table class="table profile__table">
+			  <tbody>
+				<tr>
+				  <th><strong>Your Number</strong></th>
+				  <td><input
+					type="tel"
+					ng-model="number"
+					id="number"
+					placeholder="Enter Phone Number..."
+				  /></td>
+				</tr>
+				<tr>
+				  <th><strong>Text Message</strong></th>
+				  <td><input
+					type="text"
+					ng-model="msg"
+					id="msg"
+					placeholder="Enter Text Message..."
+				  /></td>
+				</tr>
+				<tr>
+				  <td ><button id="book" ng-click="book()"  class="login100-form-btn">
+					  Book Now
+					</button></td><td >{{booked}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		</div>
+	  </div>
+	  </div>
+	  </div> -->
