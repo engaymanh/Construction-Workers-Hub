@@ -5,7 +5,7 @@ app.controller('signupEng', [
 	'$firebaseStorage',
 	'$firebaseObject',
 	function($scope, $http, $firebaseStorage, $firebaseObject) {
-		$scope.fullName = 'ff';
+		$scope.fullName = '';
 		$scope.username = '';
 		$scope.password = '';
 		$scope.sitelocation = '';
