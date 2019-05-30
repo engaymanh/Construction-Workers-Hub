@@ -7,8 +7,13 @@ app.controller('signinEng', [
 		$scope.password = '';
 		$scope.fullName = '';
 		$scope.phonenumber = '';
+<<<<<<< HEAD
+		$scope.siteLocation = '';
+		$scope.url = '' || 'https://cdn0.iconfinder.com/data/icons/flat-vector-2/100/77-Under_Construction-512.png';
+=======
 		$scope.siteLocation = '4554';
 		$scope.url = '' || 'https://avatarfiles.alphacoders.com/129/129186.jpg';
+>>>>>>> c4db378b281d7f5a03051069bcf8acbac0f9bc2c
 		var x = $scope;
 		$scope.engineerSignIn = function() {
 			var { username, password } = $scope;

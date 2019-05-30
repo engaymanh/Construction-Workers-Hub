@@ -7,8 +7,8 @@
                 Sign Up for construction Workers
             </span>
             <h4 > Upload profile photo </h4>
-						<input type="file" ng-model="handleChange" />
-						<button ng-click="handleUpload">
+            <input type="file" onchange="angular.element(this).scope().onChange(this.files)" />
+						<button ng-click="upload()">
 							Upload
             </button>
             <img
