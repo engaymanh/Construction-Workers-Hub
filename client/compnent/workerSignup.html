@@ -1,74 +1,160 @@
-	<div>
-    <a href="#!/">home </a>
-						<h1 >
-							Sign Up for construction Workers
-						</h1>
-						<h4 > Upload profile photo </h4>
+
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="wrap-login100">
+          <form class="login100-form validate-form">
+            <span class="login100-form-title p-b-43">
+                Sign Up for construction Workers
+            </span>
+            <h4 > Upload profile photo </h4>
 						<input type="file" ng-model="handleChange" />
 						<button ng-click="handleUpload">
 							Upload
-						</button>
-						<br />
-						<img
+            </button>
+            <img
 							ng-src=
 								"{{url}}" 
-							
 							alt="uploaded image"
 							height="150"
 							width="200"
 						/>
-						<br />
-						<input type="text" name="fullname" placeholder="fullName" ng-model="fullname" />
-						<br />
-						<input type="text" name="username" placeholder="userName" ng-model="username" />
-						<br />
-						<input
-							type="password"
-							name="password"
-							placeholder="password"
-						  ng-model="password"
-						/>
-						<br />
-						<input
-							type="number"
-							name="phonenumber"
-							placeholder="079-123-4567"
-							ng-model="phonenumber"
-						/>
-						<br />
-						<input
-							type="number"
+            <!-- <div
+              class="wrap-input100 validate-input"
+              data-validate="Valid email is required: ex@abc.xyz"
+            > -->
+            <!-- <input class="input100" type="text" name="email" /> -->
+            <div
+              class="wrap-input100 validate-input" >
+              <input type="text" name="fullname" class="input100"  ng-model="fullname" />
+              <span class="focus-input100"></span>
+              <span class="label-input100">fullname</span>
+            </div>
+           
+            <div
+              class="wrap-input100 validate-input" >
+              <input type="text" name="username" class="input100" ng-model= "username"/>
+              <span class="focus-input100"></span>
+              <span class="label-input100">username</span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Password is required">
+                <input
+                  class="input100"
+                  type="password"
+                  name="password"
+                  ng-model="password"
+                />
+                <span class="focus-input100"></span>
+                <span class="label-input100">Password</span>
+              </div>
+  
+            <div
+              class="wrap-input100 validate-input" >
+              <input type="number" name="phonenumber" class="input100"  ng-model="phonenumber" />
+              <span class="focus-input100"></span>
+              <span class="label-input100">phonenumber</span>
+            </div>
+            
+              <div
+              class="wrap-input100 validate-input" >
+              <input
+              type="number"
+              class="input100"
 							name="expectedsalary"
-							placeholder="expected salary / hour"
+							
 							ng-model="expectedsalary"
 						/>
-            <br />
-            <label> Role: </label>
-						<select name="role" ng-model="role">
-                <option value="Painter">Painter </option>
-                <option value="Carpenter">Carpenter</option>
-                <option value="Stone Builde">Stone Builder </option>
-                <option value="Smith">Smith</option>
-						</select>
-            <br />
-            <label>Experience level:</label>
-						<select name="experiencelevel" ng-model="experiencelevel">
-                <option value="Professional">Professional</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Beginner">Beginner </option>
-						</select>
-            <br />
-            <label>Status:</label>
-						<select name="status" ng-model="status">
-							<option value="Available">Available </option>
-                <option value="Not Available">Not Available</option>
-						</select>
-						<br />
-						<button id="signUpWorker" ng-click="signUp()" >
-							Sign Up
-						</button>
-							<p value="sign In as a construction Worker">
-								Already have an account? <a href="#!/workerSignin">Sign In</a>                 
-					</div>
-			</div>
-</div>
+              <span class="focus-input100"></span>
+              <span class="label-input100">expectedsalary / hour</span>
+            </div>
+            
+            <div
+              class="wrap-input100 validate-input" >
+              <select name="role" ng-model="role">
+                  <option value="Painter">Painter </option>
+                  <option value="Carpenter">Carpenter</option>
+                  <option value="Stone Builde">Stone Builder </option>
+                  <option value="Smith">Smith</option>
+              </select>
+              <span class="focus-input100"></span>
+              <span class="label-input100">Role</span>
+            </div>
+            <div
+              class="wrap-input100 validate-input" >
+              <select name="experiencelevel" ng-model="experiencelevel">
+                  <option value="Professional">Professional</option>
+                  <option value="Intermediate">Intermediate</option>
+                  <option value="Beginner">Beginner </option>
+              </select>
+              <span class="focus-input100"></span>
+              <span class="label-input100">Experience level:</span>
+            </div>
+
+            <div
+              class="wrap-input100 validate-input" >
+              <select name="status" ng-model="status">
+                <option value="Available">Available </option>
+                  <option value="Not Available">Not Available</option>
+              </select>
+              <span class="focus-input100"></span>
+              <span class="label-input100">Status</span>
+            </div>
+
+            
+            <!-- <div class="flex-sb-m w-full p-t-3 p-b-32"> -->
+              <!-- <div class="contact100-form-checkbox">
+                <input
+                  class="input-checkbox100"
+                  id="ckb1"
+                  type="checkbox"
+                  name="remember-me"
+                />
+                <label class="label-checkbox100" for="ckb1">
+                  Remember me
+                </label>
+              </div> -->
+
+              <!-- <div>
+                <a href="#" class="txt1">
+                  Forgot Password?
+                </a>
+              </div>
+            </div> -->
+
+            <div class="container-login100-form-btn">
+                <button id="signUpWorker" ng-click="signUp()" class="login100-form-btn">
+                    Sign Up
+                  </button>
+              <!-- <button ng-click="signIn()" class="login100-form-btn">
+                Sign In
+            </button> -->
+            </div>
+
+            <div class="text-center p-t-46 p-b-20">
+              <span class="txt2">
+                or sign up using
+              </span>
+            </div>
+
+            <div class="login100-form-social flex-c-m">
+              <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                <i class="fa fa-facebook-f" aria-hidden="true"></i>
+              </a>
+
+              <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+            </div>
+          </form>
+
+          <div
+            class="login100-more"
+            style="background-image: url('Style/images/siginup.jpg');"
+          ></div>
+          <!-- <div class="col-lg-3 col-md-6 col-lg-offset-1">
+              <div class="about_banner">
+                <img src="Style/images/man.png" alt="" />
+              </div> -->
+            </div>
+        </div>
+      </div>
+    </div>
