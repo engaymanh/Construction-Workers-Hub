@@ -1,12 +1,12 @@
 <strong>{{ fullName }}</strong> <img src={ url ||
-'https://i0.wp.com/addisonavenuemarketing.com/wp-content/uploads/2016/07/facebook-avatar.jpg?fit=690%2C435'
+'https://i0.wp.com/addisonavenuemarketing.com/wp-content/uploads/2016/07/facebook-avatar.jpg?fit=690%2C335'
 } alt="uploaded image" height="150" width="200" />
 
 <label>{{ fullName }}</label>
 <label>{{ userName }}</label>
 <label>{{ phoneNumber }}</label>
 <label>{{ siteLocation }}</label>
-
+<!-- 
 <button value="Smiths">
   Smiths
 </button>
@@ -21,7 +21,24 @@
 
 <button value="Painters">
   Painters
-</button>
+</button> -->
+<div class="limiter">
+  <div class="container-login100">
+    <div class="col-md-3" ng-repeat="user in users">
+      <div class="service_item" >
+        <img src={{user.url}} alt="Our workers" />
+        <h3>{{ user.fullName }}</h3>
+        <p>
+          <h5> Profession: </h5>{{ user.role }} <br />
+          <h5> Experience: </h5>{{ user.experienceLevel }}<br />
+          <h5>Status now: </h5>{{ user.status }}<br />
+        </p>
+        <a id="user.id" ng-click="showProfile($index)" class="btn know_btn">See Profile</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
 <div>
   <table>
     <tbody>
@@ -42,4 +59,4 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
