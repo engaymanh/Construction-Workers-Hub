@@ -20,7 +20,30 @@ app.controller('workerSignup', [
 		$scope.url =
 			'' ||
 			'https://cdn2.iconfinder.com/data/icons/factory-and-manufacturing/512/factory_manufacturing_company_industry-02-512.png';
+		$scope.handleChange = (e) => {
+			if (e.target.files[0]) {
+				const image = e.target.files[0];
+				console.log(image);
+			}
+		};
 
+		$scope.handleUpload = () => {
+			const { image } = this.state;
+			const uploadTask = storage.ref(`images/${image.name}`).put(image);
+			uploadTask.on(
+				`state_changed`,
+				(snapshot) => {
+					const progress = Math.round(snapshot.bytesTransferred / snapshot.totalBytes * 100);
+				},
+				(error) => {},
+				() => {
+					storage.ref(`images`).child(image.name).getDownloadURL().then((url) => {
+						console.log(url);
+						$scope.url = url;
+					});
+				}
+			);
+		};
 		$scope.signUp = () => {
 			console.log('hhhhhh');
 			var {

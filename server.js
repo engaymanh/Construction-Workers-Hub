@@ -27,7 +27,6 @@ app.use((req, res, next) => {
 });
 //sign up for engineer in the database
 app.post('/signupEngineer', function(req, res) {
-	console.log(req.body);
 	let fullname = req.body.fullname;
 	let username = req.body.username;
 	let password = req.body.password;
@@ -45,11 +44,9 @@ app.post('/signupEngineer', function(req, res) {
 			url: url
 		})
 		.then(function() {
-			console.log('creat');
 			return res.status(201).send({ success: 'Sign up as engineer successful' });
 		})
 		.catch(function(err) {
-			console.log(err);
 			if (err.name === 'SequelizeUniqueConstraintError') {
 				return res.status(400).send({ error: 'This username is already taken' });
 			}
@@ -66,7 +63,6 @@ app.post('/signinEngineer', function(req, res) {
 		if (!user) {
 			return res.status(401).send({ error: 'Please sign up' });
 		}
-		console.log(user.dataValues);
 		//Compare with stored password
 		const existingHashedPassword = user.password;
 		bcrypt.compare(password, existingHashedPassword).then(function(isMatching) {
@@ -75,7 +71,7 @@ app.post('/signinEngineer', function(req, res) {
 				const token = jwt.sign({ username: user.userName }, SECRET_KEY, {
 					expiresIn: 900
 				});
-				return res.send({ token: token, data: user.dataValues });
+				return res.send({ token: token });
 			} else {
 				return res.status(401).send({ error: 'Wrong password' });
 			}
@@ -124,7 +120,7 @@ app.post('/signupWorker', function(req, res) {
 app.post('/signinWorker', function(req, res) {
 	const username = req.body.username;
 	const password = req.body.password;
-	console.log(username, password);
+
 	worker.findOne({ where: { userName: username } }).then(function(user) {
 		if (!user) {
 			return res.status(401).send({ error: 'Wrong username' });

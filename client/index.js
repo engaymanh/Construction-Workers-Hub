@@ -13,14 +13,6 @@ app.config(function($routeProvider) {
 			templateUrl: './compnent/workerSignin.html',
 			controller: 'workerSignin'
 		})
-		.when('/signupEng', {
-			templateUrl: './compnent/signupEng.html',
-			controller: 'signupEng'
-		})
-		.when('/signinEng', {
-			templateUrl: './compnent/signinEng.html',
-			controller: 'signinEng'
-		})
 		.when('/WorkerProfile/:id', {
 			templateUrl: './compnent/WorkerProfile.html',
 			controller: 'WorkerProfile'
@@ -40,6 +32,14 @@ app.config(function($routeProvider) {
 		.when('/about', {
 			templateUrl: './compnent/about.html',
 			controller: 'aboutController'
+		})
+		.when('/signupEng', {
+			templateUrl: './compnent/signupEng.html',
+			controller: 'signupEng'
+		})
+		.when('/signinEng', {
+			templateUrl: './compnent/signinEng.html',
+			controller: 'signinEng'
 		});
 });
 app.service('worker_id_service', function() {
