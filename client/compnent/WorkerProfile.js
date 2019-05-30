@@ -1,6 +1,7 @@
 app.controller("WorkerProfile", function($scope, $http, worker_id_service) {
   $scope.number = "";
   $scope.msg = "";
+  $scope.booked = "";
   $scope.userProfile = [];
   $scope.worker_id = worker_id_service.worker.id;
 
@@ -24,16 +25,10 @@ app.controller("WorkerProfile", function($scope, $http, worker_id_service) {
   $scope.pick_worker = function() {};
   $scope.book = function() {
     if ($scope.userProfile.status === "not Available") {
-      alert($scope.userProfile.fullName + " is not availbale at the moment");
+      $scope.booked = " not availbale at the moment";
       return;
     } else {
-      alert(
-        "Booked " +
-          $scope.userProfile.fullName +
-          " successfully send " +
-          $scope.userProfile.fullName +
-          " a message bellow "
-      );
+      $scope.booked = " successfully send request wait for response ";
       $http({
         method: "put",
         url: `/engineerworker/${$scope.worker_id}`,
