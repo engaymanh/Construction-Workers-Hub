@@ -2,8 +2,8 @@ var mysql = require("mysql");
 var Sequelize = require("sequelize");
 
 //Database connection
-const db = new Sequelize("sql7293890", "sql7293890", "pcPNdQLGzs", {
-  host: "sql7.freesqldatabase.com",
+const db = new Sequelize("BARgOmUHdR", "BARgOmUHdR", "Vtuj3U02FS", {
+  host: "remotemysql.com",
   dialect: "mysql"
 });
 
