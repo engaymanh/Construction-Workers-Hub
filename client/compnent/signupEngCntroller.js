@@ -1,8 +1,11 @@
+// signup engineer controller
 app.controller('signupEng', [
 	'$scope',
 	'$http',
 	'$firebaseStorage',
 	'$firebaseObject',
+	
+	// define the main info for the engineer
 	function($scope, $http, $firebaseStorage, $firebaseObject) {
 		$scope.fullName = '';
 		$scope.username = '';
@@ -16,6 +19,7 @@ app.controller('signupEng', [
 		$scope.onChange = function onChange(fileList) {
 			$scope.image = fileList[0];
 
+			// upload the image in firbase
 			$scope.upload = function() {
 				if ($scope.image) {
 					let storageRef = firebase.storage().ref(`images/` + $scope.image.name);
@@ -62,7 +66,8 @@ app.controller('signupEng', [
 				image,
 				url
 			};
-			console.log(engineer);
+			
+			// send the data to server
 			$http.post('/signupEngineer', engineer).then(
 				(result) => {
 					console.log(result.data);
