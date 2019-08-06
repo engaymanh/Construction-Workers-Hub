@@ -1,10 +1,11 @@
+// Worker Profile controller
 app.controller("WorkerProfile", function($scope, $http, worker_id_service) {
   $scope.number = "";
   $scope.msg = "";
   $scope.booked = "";
   $scope.userProfile = [];
   $scope.worker_id = worker_id_service.worker.id;
-
+// get the pring the worker data as array
   get_worker_profile = function() {
     console.log($scope.worker_id, "dfdfsdfsdfs");
     // const token = localStorage.getItem("token");
@@ -22,7 +23,10 @@ app.controller("WorkerProfile", function($scope, $http, worker_id_service) {
     });
   };
   get_worker_profile();
+  
   $scope.pick_worker = function() {};
+  
+// check if the worker avilable or not to pick him
   $scope.book = function() {
     if ($scope.userProfile.status === "not Available") {
       $scope.booked = " not availbale at the moment";
@@ -95,7 +99,8 @@ app.controller("WorkerProfile", function($scope, $http, worker_id_service) {
       // });
     }
   };
-
+  
+// send msg to worker to notify him 
   $scope.sendMessage = function() {
     var { number, msg } = $scope;
     var message = { number, msg };
