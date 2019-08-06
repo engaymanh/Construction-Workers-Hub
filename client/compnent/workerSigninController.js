@@ -1,3 +1,4 @@
+// sign in controller for worker page
 app.controller('workerSignin', function($scope, $http, $location) {
 	$scope.msg = 'Hello hard worker';
 	$scope.username = '';
@@ -11,53 +12,7 @@ app.controller('workerSignin', function($scope, $http, $location) {
 	$scope.role = '';
 	$scope.status = '';
 	$scope.url = '';
-
-<<<<<<< HEAD
-  $scope.signIn = () => {
-    console.log("jjjjjj");
-    var { username, password } = $scope;
-    var worker = { username, password };
-    $http({
-      method: "POST",
-      url: "/signinWorker",
-      data: JSON.stringify(worker),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(function successCallback(response) {
-        if (response.status == 200) {
-          const token = response.data.token;
-          localStorage.setItem("token", token);
-          $scope.username = "";
-          $scope.password = "";
-          $location.path("/workerPage");
-        }
-      })
-      .catch(function errorCallback(response) {
-        console.log("error");
-      });
-  };
-
-  // $scope.workerPage = () => {
-  //   const token = localStorage.getItem("token");
-  //   $http({
-  //     method: "GET",
-  //     url: "/workerPage",
-  //     headers: { "x-access-token": token }
-  //   }).then(function successCallback(response) {
-  //     if (response.status == 200) {
-  //       $scope.fullName = response.fullName;
-  //       $scope.phoneNumber = response.phoneNumber;
-  //       $scope.experienceLevel = response.experienceLevel;
-  //       $scope.expectedSalary = response.expectedSalary;
-  //       $scope.role = response.role;
-  //       $scope.status = response.status;
-  //       $scope.url = response.url;
-  //     }
-  //   });
-  // };
-=======
+// sign in fetch the data
 	$scope.signIn = () => {
 		var { username, password } = $scope;
 		var worker = { username, password };
@@ -85,5 +40,4 @@ app.controller('workerSignin', function($scope, $http, $location) {
 				console.log('err');
 			});
 	};
->>>>>>> 09d87d2b89e3ebb49745ef9e9835a630803ec497
 });
