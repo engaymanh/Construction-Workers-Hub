@@ -1,65 +1,62 @@
-<!-- <div ng-controller="signupEng"> -->
+<!--signup Engineer page-->
 
-    	<div>
+   <div>
 				
-					<div>
-						<!-- <NavLink to="/" activeStyle={{ color: 'white' }}> -->
-							<h2 id="homeButton">Home</h2>
-						<!-- </NavLink> -->
-						<h1 >
-							Sign Up for Engineers {{fullName }}
-						</h1>
-						<input type="file" onchange="angular.element(this).scope().onChange(this.files)" />
-						<button ng-click="upload()" >
-							Upload
-						</button>
-						<br />
-						<img
-							ng-src="{{url}}" 
-							alt="uploaded image"
-							height="150"
-							width="200"
-						/>
-						<br />
-						<input
-							type="text"
-							  ng-model="fullName"
-							placeholder="fullName"
-						/>
-						<br />
-            <input type="text"   ng-model="username" placeholder="userName" />
-            
-						<br />
-						<input
-							type="password"
-							  ng-model="password"
-							placeholder="password"
-						/>
-						<br />
-						<input
-							type="text"
-							  ng-model="sitelocation"
-							placeholder="Site Location"
-						/>
-						<br />
-						<input
-							type="number"
-							  ng-model="phonenumber"
-							placeholder="Phone Number"
-						/>
-						<br />
-						<button className="Button"  ng-click="engineerSignUp()">
-							Sign Up
-						</button>
-						<br />
-						<!-- <NavLink to="/signinEngineer" activeStyle={{ color: 'purple' }}> -->
-							<button value="Already Signed up? Sign In" className="Button">
-								Already Signed up? Sign In Here 
-							</button>
-						<!-- </NavLink> -->
-					</div>
-			
-					
-			
-			</div>
+     <div>
+	<!-- <NavLink to="/" activeStyle={{ color: 'white' }}> -->
+		<h2 id="homeButton">Home</h2>
+	<!-- </NavLink> -->
+	<h1 >
+		Sign Up for Engineers {{fullName }}
+	</h1>
+	<input type="file" onchange="angular.element(this).scope().onChange(this.files)" />
+	<button ng-click="upload()" >
+		Upload
+	</button>
+	<br />
+	<img
+		ng-src="{{url}}" 
+		alt="uploaded image"
+		height="150"
+		width="200"
+	/>
+	<br />
+	<input
+		type="text"
+		  ng-model="fullName"
+		placeholder="fullName"
+	/>
+	<br />
+	<input type="text"   ng-model="username" placeholder="userName" />
+
+	<br />
+	<input
+		type="password"
+		  ng-model="password"
+		placeholder="password"
+	/>
+	<br />
+	<input
+		type="text"
+		  ng-model="sitelocation"
+		placeholder="Site Location"
+	/>
+	<br />
+	<input
+		type="number"
+		  ng-model="phonenumber"
+		placeholder="Phone Number"
+	/>
+	<br />
+	<button className="Button"  ng-click="engineerSignUp()">
+		Sign Up
+	</button>
+	<br />
+	<!-- <NavLink to="/signinEngineer" activeStyle={{ color: 'purple' }}> -->
+		<button value="Already Signed up? Sign In" className="Button">
+			Already Signed up? Sign In Here 
+		</button>
+	<!-- </NavLink> -->
+     </div>
+</div>
 <!-- </div> -->
