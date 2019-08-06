@@ -1,5 +1,6 @@
 // import storage from '/Users/rbk-9/Desktop/Construction-Workers-Hub/client_react/firebase';
 
+//worker Signup Controller
 app.controller('workerSignup', [
 	'$scope',
 	'$http',
@@ -25,7 +26,8 @@ app.controller('workerSignup', [
 				console.log(image);
 			}
 		};
-
+// upload the image
+		
 		$scope.handleUpload = () => {
 			const { image } = this.state;
 			const uploadTask = storage.ref(`images/${image.name}`).put(image);
@@ -43,8 +45,9 @@ app.controller('workerSignup', [
 				}
 			);
 		};
+// define the sign up data
 		$scope.signUp = () => {
-			console.log('hhhhhh');
+			
 			var {
 				fullname,
 				username,
@@ -67,7 +70,8 @@ app.controller('workerSignup', [
 				status,
 				url
 			};
-			console.log(info);
+			
+//send the data to the server
 			$http.post('/signupWorker', { info }).then(
 				(result) => {
 					console.log(result.data);
