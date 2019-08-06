@@ -1,6 +1,6 @@
 // import firebase from 'firebase/app';
 // import 'firebase/storage';
-
+// firebase configration
 const firebaseConfig = {
 	apiKey: 'AIzaSyBXyGg2Ypjbu7rUTN-Xhzmo4U4gndpcnkM',
 	authDomain: 'yazan55235570.firebaseapp.com',
