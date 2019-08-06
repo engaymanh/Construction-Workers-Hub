@@ -1,4 +1,7 @@
 var app = angular.module('app', [ 'ngRoute', 'firebase' ]);
+
+// the route between the pages
+
 app.config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
