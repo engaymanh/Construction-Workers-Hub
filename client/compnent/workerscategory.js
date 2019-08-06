@@ -1,3 +1,4 @@
+// workers category controller
 app.controller("workerscategory", function(
   $scope,
   $http,
